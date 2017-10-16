@@ -1,8 +1,10 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.image.BufferStrategy;
 
-public class Game extends Canvas implements Runnable{
+public class Game extends Canvas implements Runnable, KeyListener{
 
     private boolean isRunning = false;
 
@@ -19,7 +21,7 @@ public class Game extends Canvas implements Runnable{
         setPreferredSize(dimension);
         setMaximumSize(dimension);
         setMinimumSize(dimension);
-
+        addKeyListener(this);
         player = new Player(Game.WIDTH/2, Game.HEIGHT/2);
     }
 
@@ -117,4 +119,18 @@ public class Game extends Canvas implements Runnable{
 
     }
 
+    @Override
+    public void keyTyped(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+
+    }
 }
