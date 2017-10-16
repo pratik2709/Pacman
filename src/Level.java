@@ -8,6 +8,8 @@ public class Level {
     public int width;
     public int height;
 
+    public tile[][] tiles;
+
     public Level(String path){
         try{
             BufferedImage map = ImageIO.read(getClass().getResource("/map/map.png"));
