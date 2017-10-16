@@ -12,11 +12,15 @@ public class Game extends Canvas implements Runnable{
 
     private Thread thread;
 
+    public static Player player;
+
     public Game(){
         Dimension dimension = new Dimension(Game.WIDTH, Game.HEIGHT);
         setPreferredSize(dimension);
         setMaximumSize(dimension);
         setMinimumSize(dimension);
+
+        player = new Player(Game.WIDTH/2, Game.HEIGHT/2);
     }
 
     public synchronized void start(){
@@ -40,6 +44,7 @@ public class Game extends Canvas implements Runnable{
     }
 
     public void tick(){
+        player.tick();
     }
 
     public void render(){
@@ -54,6 +59,7 @@ public class Game extends Canvas implements Runnable{
 
         g.setColor(Color.BLACK);
         g.fillRect(0, 0, Game.WIDTH, Game.HEIGHT);
+        player.render(g);
 
         g.dispose();
         bs.show();
