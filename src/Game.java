@@ -15,11 +15,23 @@ public class Game extends Canvas implements Runnable{
     }
 
     public synchronized void start(){
-
+        if(isRunning) return;
+        isRunning = true;
+        thread = new Thread(this);
+        thread.start();
     }
 
     public synchronized void stop(){
+        if(!isRunning) return;
+        isRunning = false;
+        try{
+            // wait for completion of the other thread
+            thread.join();
+        }
+        catch (InterruptedException ex){
+            ex.printStackTrace();
 
+        }
     }
 
     public void tick(){
