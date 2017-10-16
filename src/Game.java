@@ -69,7 +69,7 @@ public class Game extends Canvas implements Runnable, KeyListener{
 
     @Override
     public void run(){
-
+        requestFocus();
         // need to understand how timing works in games
         // delta is time between 2 frames
         //http://gameprogrammingpatterns.com/game-loop.html
@@ -126,11 +126,17 @@ public class Game extends Canvas implements Runnable, KeyListener{
 
     @Override
     public void keyPressed(KeyEvent e) {
-
+        if(e.getKeyCode() == KeyEvent.VK_RIGHT) player.right = true;
+        if(e.getKeyCode() == KeyEvent.VK_LEFT) player.left = true;
+        if(e.getKeyCode() == KeyEvent.VK_UP) player.up = true;
+        if(e.getKeyCode() == KeyEvent.VK_DOWN) player.down = true;
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-
+        if(e.getKeyCode() == KeyEvent.VK_RIGHT) player.right = false;
+        if(e.getKeyCode() == KeyEvent.VK_LEFT) player.left = false;
+        if(e.getKeyCode() == KeyEvent.VK_UP) player.up = false;
+        if(e.getKeyCode() == KeyEvent.VK_DOWN) player.down = false;
     }
 }
