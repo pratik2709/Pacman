@@ -15,6 +15,7 @@ public class Game extends Canvas implements Runnable, KeyListener{
     private Thread thread;
 
     public static Player player;
+    public static Level level;
 
     public Game(){
         Dimension dimension = new Dimension(Game.WIDTH, Game.HEIGHT);
@@ -23,6 +24,7 @@ public class Game extends Canvas implements Runnable, KeyListener{
         setMinimumSize(dimension);
         addKeyListener(this);
         player = new Player(Game.WIDTH/2, Game.HEIGHT/2);
+        level = new Level("map.png");
     }
 
     public synchronized void start(){
@@ -62,6 +64,7 @@ public class Game extends Canvas implements Runnable, KeyListener{
         g.setColor(Color.BLACK);
         g.fillRect(0, 0, Game.WIDTH, Game.HEIGHT);
         player.render(g);
+        level.render(g);
 
         g.dispose();
         bs.show();
