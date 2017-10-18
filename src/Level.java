@@ -55,6 +55,10 @@ public class Level {
                         tiles[xx][yy] = new Tile(xx*32, yy*32);
                         System.out.println("here2");
                     }
+                    else if(val == 0xFF0000FF){
+                        Game.player.x = xx*32;
+                        Game.player.y = yy*32;
+                    }
                 }
             }
 
