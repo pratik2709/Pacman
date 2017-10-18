@@ -49,6 +49,7 @@ public class Game extends Canvas implements Runnable, KeyListener{
 
     public void tick(){
         player.tick();
+        level.tick();
     }
 
     public void render(){

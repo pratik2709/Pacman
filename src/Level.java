@@ -2,6 +2,7 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class Level {
 
@@ -9,6 +10,8 @@ public class Level {
     public int height;
 
     public Tile[][] tiles;
+    public java.util.List<Apple> apples;
+    public java.util.List<Enemy> enemies;
 
        private static void printArray(int[] anArray) {
           for (int i = 0; i < anArray.length; i++) {
@@ -20,6 +23,8 @@ public class Level {
        }
 
     public Level(String path){
+        apples = new ArrayList<Apple>();
+        enemies = new ArrayList<Enemy>();
         try{
             BufferedImage map = ImageIO.read(getClass().getResource(path));
 
@@ -59,6 +64,13 @@ public class Level {
                         Game.player.x = xx*32;
                         Game.player.y = yy*32;
                     }
+                    else if(val == 0xFFFF0000){
+                        enemies.add(new Enemy(xx*32, yy*32));
+                    }
+                    else{
+                        apples.add(new Apple(xx*32, yy*32));
+                    }
+
                 }
             }
 
@@ -69,6 +81,12 @@ public class Level {
 
     }
 
+    public void tick(){
+        for(int i = 0; i < enemies.size(); i++){
+            enemies.get(i).tick();
+        }
+    }
+
     public void render(Graphics g){
         for(int x = 0; x < width; x++){
             for(int y = 0; y < height; y++){
@@ -76,6 +94,14 @@ public class Level {
                     tiles[x][y].render(g);
                 }
             }
+        }
+
+        for(int i = 0; i < apples.size(); i++){
+            apples.get(i).render(g);
+        }
+
+        for(int i = 0; i < enemies.size(); i++){
+            enemies.get(i).render(g);
         }
     }
 }
