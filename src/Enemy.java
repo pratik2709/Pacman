@@ -36,14 +36,14 @@ public class Enemy extends Rectangle {
             if (dir == right) {
 
                 if (canMove(x + speed, y)) {
-                    x += speed;
+                    if(randomGen.nextInt(100) < 50) x += speed;
                 } else {
                     dir = randomGen.nextInt(4);
                 }
 
             } else if (dir == left) {
                 if (canMove(x - speed, y)) {
-                    x -= speed;
+                    if(randomGen.nextInt(100) < 50) x -= speed;
                 } else {
                     dir = randomGen.nextInt(4);
 
@@ -51,7 +51,7 @@ public class Enemy extends Rectangle {
 
             } else if (dir == up) {
                 if (canMove(x, y - speed)) {
-                    y -= speed;
+                    if(randomGen.nextInt(100) < 50) y -= speed;
                 } else {
                     dir = randomGen.nextInt(4);
 
@@ -59,7 +59,7 @@ public class Enemy extends Rectangle {
 
             } else if (dir == down) {
                 if (canMove(x, y + speed)) {
-                    y += speed;
+                    if(randomGen.nextInt(100) < 50) y += speed;
                 } else {
                     dir = randomGen.nextInt(4);
 
@@ -80,7 +80,7 @@ public class Enemy extends Rectangle {
             //these if ensure to follow the player to its position
             if (x < Game.player.x) {
                 if (canMove(x + speed, y)) {
-                    x += speed;
+                    if(randomGen.nextInt(100) < 50) x += speed;
                     move = true;
                     lastDir = right;
                 }
@@ -88,7 +88,7 @@ public class Enemy extends Rectangle {
 
             if (x > Game.player.x) {
                 if (canMove(x - speed, y)) {
-                    x -= speed;
+                    if(randomGen.nextInt(100) < 50) x -= speed;
                     move = true;
                     lastDir = left;
                 }
@@ -96,7 +96,7 @@ public class Enemy extends Rectangle {
 
             if (y < Game.player.y) {
                 if (canMove(x, y + speed)) {
-                    y += speed;
+                    if(randomGen.nextInt(100) < 50) y += speed;
                     move = true;
                     lastDir = down;
                 }
@@ -104,7 +104,7 @@ public class Enemy extends Rectangle {
 
             if (y > Game.player.y) {
                 if (canMove(x, y - speed)) {
-                    y -= speed;
+                    if(randomGen.nextInt(100) < 50) y -= speed;
                     move = true;
                     lastDir = up;
                 }
@@ -131,70 +131,70 @@ public class Enemy extends Rectangle {
             if (lastDir == right) {
                 if (y < Game.player.y) {
                     if (canMove(x, y + speed)) {
-                        y += speed;
+                        if(randomGen.nextInt(100) < 50) y += speed;
                         state = smart;
                     }
                 } else {
                     if (canMove(x, y - speed)) {
-                        y -= speed;
+                        if(randomGen.nextInt(100) < 50) y -= speed;
                         state = smart;
                     }
                 }
                 //actually move ?
                 if (canMove(x + speed, y)) {
-                    x += speed;
+                    if(randomGen.nextInt(100) < 50) x += speed;
                 }
             }
 
             if (lastDir == left) {
                 if (y < Game.player.y) {
                     if (canMove(x, y + speed)) {
-                        y += speed;
+                        if(randomGen.nextInt(100) < 50) y += speed;
                         state = smart;
                     }
                 } else {
                     if (canMove(x, y - speed)) {
-                        y -= speed;
+                        if(randomGen.nextInt(100) < 50) y -= speed;
                         state = smart;
                     }
                 }
 
                 if (canMove(x - speed, y)) {
-                    x -= speed;
+                    if(randomGen.nextInt(100) < 50) x -= speed;
                 }
             }
 
             if (lastDir == up) {
                 if (x < Game.player.x) {
                     if (canMove(x + speed, y)) {
-                        x += speed;
+                        if(randomGen.nextInt(100) < 50) x += speed;
                         state = smart;
                     }
                 } else {
                     if (canMove(x - speed, y)) {
-                        x -= speed;
+                        if(randomGen.nextInt(100) < 50) x -= speed;
                         state=smart;
                     }
                 }
                 if (canMove(x, y - speed)) {
-                    y -= speed;
+                    if(randomGen.nextInt(100) < 50) y -= speed;
                 }
             }
 
             if (lastDir == down) {
                 if (x < Game.player.x) {
                     if (canMove(x + speed, y)) {
-                        x += speed;
+                        if(randomGen.nextInt(100) < 50) x += speed;
                         state = smart;
                     }
                 } else {
                     if (canMove(x - speed, y)) {
-                        x -= speed;
+                        if(randomGen.nextInt(100) < 50) x -= speed;
                         state = smart;
                     }
                 }
                 if (canMove(x, y + speed)) {
-                    y += speed;
+                    if(randomGen.nextInt(100) < 50) y += speed;
                 }
             }
 
