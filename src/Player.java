@@ -33,6 +33,13 @@ public class Player extends Rectangle{
             Game.level = new Level("map.png");
             return;
         }
+
+        for(int i = 0; i < Game.level.enemies.size(); i++){
+            Enemy en = Game.level.enemies.get(i);
+            if(en.intersects(this)){
+                System.exit(1);
+            }
+        }
     }
 
     //?
