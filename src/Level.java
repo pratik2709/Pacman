@@ -32,7 +32,6 @@ public class Level {
             this.width = map.getWidth();
             this.height = map.getHeight();
 
-            System.out.printf("%s, %s, %s, %s" , this.width, width, this.height, height);
 
             //stores all the rgb values in the image ??
             int[] pixels = new int[width*height];
@@ -42,9 +41,6 @@ public class Level {
             // seems to store the map color values in the pixel array
             map.getRGB(0, 0, width, height, pixels, 0, width);
 
-            System.out.println("");
-            printArray(pixels);
-            System.out.println("");
 
             for(int xx= 0; xx < width; xx++){
                 for(int yy= 0; yy < height; yy++){
@@ -53,12 +49,8 @@ public class Level {
 
                     //wherever black print a new tile of violet color
                     if(val == 0xFF000000){
-                        System.out.println("here");
-                        System.out.printf("%s, %s" , xx, yy);
-                        System.out.println("");
 
                         tiles[xx][yy] = new Tile(xx*32, yy*32);
-                        System.out.println("here2");
                     }
                     else if(val == 0xFF0000FF){
                         Game.player.x = xx*32;

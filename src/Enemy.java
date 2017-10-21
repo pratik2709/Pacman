@@ -122,7 +122,6 @@ public class Enemy extends Rectangle{
         //level.tiles[0].length this shows up as 15 why ??
         for(int xx = 0; xx < level.tiles.length; xx++){
             for (int yy = 0; yy < level.tiles[0].length; yy++){
-                System.out.println(level.tiles[0].length);
                 if(level.tiles[xx][yy] != null){
                     if(bounds.intersects(level.tiles[xx][yy])){
                         return false;
