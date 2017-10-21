@@ -73,9 +73,44 @@ public class Enemy extends Rectangle{
 
             }
 
+            time++;
+            if(time == targetTime){
+                state = smart;
+            }
+
         }
         else if (state == smart){
 
+            boolean move =false;
+
+            if(x < Game.player.x){
+                if(canMove(x+speed, y)){
+                    x += speed;
+                }
+            }
+
+            if(x > Game.player.x){
+                if(canMove(x-speed, y)){
+                    x -= speed;
+                }
+            }
+
+            if(y < Game.player.y){
+                if(canMove(x, y+speed)){
+                    y += speed;
+                }
+            }
+
+            if(y > Game.player.y){
+                if(canMove(x, y-speed)){
+                    y -= speed;
+                }
+            }
+
+            time++;
+            if(time == targetTime){
+                state = random;
+            }
         }
 
     }
