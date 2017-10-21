@@ -18,7 +18,7 @@ public class Enemy extends Rectangle {
     // 4 seconds
     private int targetTime = 60 * 4;
 
-    private int speed = 1;
+    private int speed = 4;
 
     private int lastDir = -1;
 
@@ -118,11 +118,13 @@ public class Enemy extends Rectangle {
                 //if the player is not found in the tick then find him!
                 state = find_path;
             }
-//            time++;
-//            if(time == targetTime){
-//                state = random;
-//                time = 0;
-//            }
+
+            time++;
+            if(time == targetTime){
+                state = random;
+                time = 0;
+            }
+
         } else if (state == find_path) {
 
             //right : either go up or down
@@ -195,6 +197,13 @@ public class Enemy extends Rectangle {
                     y += speed;
                 }
             }
+
+            time++;
+            if(time == targetTime){
+                state = random;
+                time = 0;
+            }
+
         }
 
     }
