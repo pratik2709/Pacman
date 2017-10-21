@@ -27,7 +27,11 @@ public class Player extends Rectangle{
         }
 
         if(level.apples.size() == 0){
-            System.exit(1);
+            // Game end we win
+//            System.exit(1);
+            Game.player = new Player(0,0);
+            Game.level = new Level("map.png");
+            return;
         }
     }
 
@@ -54,7 +58,8 @@ public class Player extends Rectangle{
     }
 
     public void render(Graphics g){
-        SpriteSheet sheet = Game.spriteSheet;
-        g.drawImage(sheet.getSprite(0, 0), 32, 32,null);
+        g.drawImage(Texture.player, x, y,width, height,null);
+//        g.setColor(Color.YELLOW);
+//        g.fillRect(x, y, width, height);
     }
 }

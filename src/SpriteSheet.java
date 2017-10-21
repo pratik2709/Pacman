@@ -17,6 +17,6 @@ public class SpriteSheet {
 
     public BufferedImage getSprite(int xx, int yy){
         //because each sub image is 16*16
-        return sheet.getSubimage(xx, yy, xx+16, yy+16);
+        return sheet.getSubimage(xx, yy, 16, 16);
     }
 }

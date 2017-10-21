@@ -26,7 +26,8 @@ public class Game extends Canvas implements Runnable, KeyListener{
         addKeyListener(this);
         player = new Player(Game.WIDTH/2, Game.HEIGHT/2);
         level = new Level("map.png");
-        spriteSheet = new SpriteSheet("");
+        spriteSheet = new SpriteSheet("pacman.png");
+        new Texture();
     }
 
     public synchronized void start(){

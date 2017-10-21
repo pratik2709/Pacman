@@ -10,7 +10,8 @@ public class Enemy extends Rectangle{
     }
 
     public void render(Graphics g){
-        g.setColor(Color.red);
-        g.fillRect(x, y, width, height);
+        g.drawImage(Texture.ghost, x, y, width,height,null);
+//        g.setColor(Color.red);
+//        g.fillRect(x, y, width, height);
     }
 }
